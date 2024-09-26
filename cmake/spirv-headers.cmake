@@ -5,7 +5,7 @@ if(DEPENDENCIES_USE_FETCH_CONTENT)
 	include(FetchContent)
 	set(SPIRV_HEADERS_SKIP_INSTALL ON CACHE INTERNAL "Disable installation of SPIR-V headers")
 	set(SPIRV_HEADERS_SKIP_EXAMPLES ON CACHE INTERNAL "Disable building of SPIR-V header examples")
-	FetchContent_Declare(SPIRV-Headers GIT_REPOSITORY https://github.com/KhronosGroup/SPIRV-Headers.git GIT_TAG main)
+	FetchContent_Declare(SPIRV-Headers GIT_REPOSITORY https://github.com/KhronosGroup/SPIRV-Headers.git GIT_TAG sdk-1.3.246)
 	FetchContent_MakeAvailable(SPIRV-Headers)
 	FetchContent_GetProperties(SPIRV-Headers SOURCE_DIR SPIRV_HEADERS_SOURCE_DIR)
 
@@ -19,7 +19,6 @@ else()
 		PREFIX 				${CMAKE_BINARY_DIR}/spirv-headers
 		GIT_REPOSITORY 		https://github.com/KhronosGroup/SPIRV-Headers.git
 		GIT_TAG                 main
-		UPDATE_COMMAND 		git pull -f https://github.com/KhronosGroup/SPIRV-Headers.git
 		STEP_TARGETS 		build
 		EXCLUDE_FROM_ALL	TRUE
 		TIMEOUT 			30		#Timeout for downloads, in seconds
